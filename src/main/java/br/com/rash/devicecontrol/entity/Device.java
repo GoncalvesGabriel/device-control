@@ -30,10 +30,10 @@ public @Data class Device {
   private UserIdentify userIdentify;
 
   @NotNull
-  @Column(name = "CODE", columnDefinition = "SINGLE QR CODE DEVICE")
+  @Column(name = "CODE")
   private String qrCode;
 
-  @OneToOne
+  @OneToOne(mappedBy = "device")
   @JoinColumn(name = "ADRESS_ID")
   private Adress adress;
 

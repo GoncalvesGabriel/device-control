@@ -16,10 +16,10 @@ public class AdressVO {
   private String zipCode;
 
   public AdressVO(Adress adress) {
-    this.zipCode = adress.getZipCode();
-    this.street = adress.getStreet();
-    this.country = adress.getCountry();
-    this.number = adress.getNumber();
+//    this.zipCode = adress.getZipCode();
+//    this.street = adress.getStreet();
+//    this.country = adress.getCountry();
+//    this.number = adress.getNumber();
   }
 
 

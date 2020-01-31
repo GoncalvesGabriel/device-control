@@ -1,6 +1,7 @@
 package br.com.rash.devicecontrol.controller;
 
 import br.com.rash.devicecontrol.entity.Device;
+import br.com.rash.devicecontrol.entity.vo.DeviceVo;
 import br.com.rash.devicecontrol.service.DeviceService;
 import java.util.Collection;
 import java.util.Collections;
@@ -18,12 +19,9 @@ public class DeviceController {
   @Autowired
   private DeviceService deviceService;
 
-
   @GetMapping("{id}")
   public Collection<Device> findByUser(@PathVariable Long id, @RequestParam String user) {
-    Collection<Device> devices = deviceService.findByIdAndUser(id, user);
-
-
+    Collection<DeviceVo> devices = deviceService.findByUser(user);
     return Collections.EMPTY_LIST;
   }
 }

@@ -14,10 +14,10 @@ public class DeviceFactory implements Factory<DeviceVo, Device>{
   @Autowired
   private UserIdentifyService userIdentifyService;
 
-  public Device findOrCreate(DeviceVo deviceVo) {
+  public Device create(DeviceVo deviceVo) {
     UserIdentifyVo userIdentifyVo = new UserIdentifyVo();
     userIdentifyVo.setUser(deviceVo.getUser());
-    UserIdentify userIdentify = userIdentifyService.findByUser(userIdentifyVo);
+    UserIdentify userIdentify = userIdentifyService.findOrCreate(userIdentifyVo);
     return Device.builder().qrCode(deviceVo.getQrCode()).userIdentify(userIdentify).build();
   }
 }

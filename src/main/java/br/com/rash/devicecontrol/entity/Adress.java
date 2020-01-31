@@ -17,7 +17,6 @@ import javax.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name = "ADRESS")
@@ -44,8 +43,8 @@ public @Data class Adress {
   @Column(name = "NUMBER")
   private Integer number;
 
-  @OneToOne(orphanRemoval = true, cascade = CascadeType.ALL,
-      fetch = FetchType.LAZY, mappedBy = "adress")
+  @JoinColumn(name = "DEVICE_ID")
+  @OneToOne(orphanRemoval = true, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
   private Device device;
 
   @Builder
